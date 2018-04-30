@@ -1,6 +1,7 @@
 #include<iostream>
 #include<ctime>
 #include<cassert>
+#include<vector>   
 
 using namespace std;
 
@@ -24,13 +25,33 @@ namespace SortTestHelper{
 		//先生成一个0到n-1有序数组， 再随机挑选swapTimes对进行交换 
 		int *arr = new int[n];
 		for(int i = 0; i < n; i++) {
-			arr[i] = n;
+			arr[i] = i;
 		}
 		srand(time(NULL));
 		for( int i = 0; i < swapTimes; i++) {
 			int posx = rand() % n;
 			int posy = rand() % n;
 			swap( arr[posx], arr[posy] );
+		}
+		return arr;
+	}
+	
+	//生成一个有序的数组
+	int *generateAscendingOrderArray(int n){ 
+	
+		int *arr = new int[n];
+
+		for(int i = 0; i < n; i++) {
+			arr[i] = i;
+		}
+		return arr;
+	}
+	//生成一个逆序的数组
+	int *generateDescendingDisordeArray(int n){
+		
+		int *arr = new int[n];
+		for(int i = n-1; i >= 0; i--) {
+			arr[i] = i;
 		}
 		return arr;
 	}
@@ -71,8 +92,8 @@ namespace SortTestHelper{
 		
 		assert( isSorted(arr, n) );
 		//CLOCKS_PER_SEC 表示每秒钟时钟运行周期的个数 
-		cout << sortName << " : " << double(endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;
-		
+//		cout << sortName << " : " << double(endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;
+		cout << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
 		return;
 	}
 	

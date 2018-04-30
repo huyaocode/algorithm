@@ -10,7 +10,7 @@ void __quickSort3(T arr[], int l, int r) {
 //		return;
 //	}
 	if(r - l <= 15){
-		InsertionSort::insertionSort(arr, l, r);
+		insertionSort(arr, l, r);
 		return;
 	}
 	

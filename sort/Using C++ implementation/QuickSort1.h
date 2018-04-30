@@ -32,7 +32,7 @@ void __quickSort1(T arr[], int l, int r) {
 //		return;
 //	}
 	if(r - l <= 15){
-		InsertionSort::insertionSort(arr, l, r);
+		insertionSort(arr, l, r);
 		return;
 	}
 	int p = __patition1(arr, l, r);

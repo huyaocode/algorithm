@@ -1,16 +1,18 @@
 using namespace std;
 
-//Ë«Â·¿ìÅÅ 
-//½«µÈÓÚ»ù×¼ÖµµÄÔªËØ·Öµ½×óÓÒÁ½¸öÊı×é 
+
+//åŒè·¯å¿«æ’ 
+//å°†ç­‰äºåŸºå‡†å€¼çš„å…ƒç´ åˆ†åˆ°å·¦å³ä¸¤ä¸ªæ•°ç»„
 template<typename T>
 int __patition2(T arr[], int l, int r) {
 	
-	//ÓÅ»¯£º Ëæ»úÑ¡Ôñ»ù×¼Êı£¬ ·ÀÖ¹ÔÚÓĞĞòÇé¿öÏÂÊ±¼ä¸´ÔÓ¶ÈÍË»¯³Én^2 
+	//ä¼˜åŒ–ï¼š éšæœºé€‰æ‹©åŸºå‡†æ•°ï¼Œ é˜²æ­¢åœ¨æœ‰åºæƒ…å†µä¸‹æ—¶é—´å¤æ‚åº¦é€€åŒ–æˆn^2 
 	swap( arr[l] , arr[rand()%(r-l+1)+l] );
 	T v = arr[l];
 	
-	//arr[l-1£¬i) <= v; arr(j,r] >= v
+	//arr[l-1ï¼Œi) <= v; arr(j,r] >= v
 	int i = l+1, j = r;
+	//left+1çš„æ„ä¹‰åœ¨äºå¦‚æœä¸åŠ ä¸€ï¼Œä¸‹é¢çš„iå°±ä¼šå¡æ­»åœ¨æœ€å·¦ 
 	while(true){
 		while(i <= r && arr[i] < v ){
 			i++;
@@ -18,29 +20,32 @@ int __patition2(T arr[], int l, int r) {
 		while(j >= l+1 && arr[j] > v){
 			j--;
 		}
-		if( i > j){
+		if( i >= j){
 			break;
 		}
 		swap(arr[i], arr[j]);
+		//è¿™é‡Œçš„ i++ï¼Œä¸j--ä¹Ÿæ˜¯å¿…è¦çš„
 		i++;
 		j--;
+	
 	}
+	//å› ä¸ºjæ¸¸æ ‡ä»ä»å³å¾€å·¦èµ°ï¼Œå¦‚æœæ‰€æœ‰çš„æ•°éƒ½å¤§äº v ï¼Œé‚£ä¹ˆè¿™ä¸ªæ—¶å€™ j ä½ç½®ä¸ lefté‡åˆã€‚è€Œ i è‚¯å®šæ˜¯å¤§äºäº† leftçš„
 	swap(arr[l], arr[j]);
 	
 	return j;
 }
 
 
-//¶Ôarr[l, r]²¿·Ö½øĞĞ¿ìËÙÅÅĞò 
+//å¯¹arr[l, r]éƒ¨åˆ†è¿›è¡Œå¿«é€Ÿæ’åº 
 template<typename T>
 void __quickSort2(T arr[], int l, int r) {
-//	if(l >= r){
-//		return;
-//	}
-	if(r - l <= 15){
-		InsertionSort::insertionSort(arr, l, r);
+	if(l >= r){
 		return;
 	}
+//	if(r - l <= 15){
+//		InsertionSort::insertionSort(arr, l, r);
+//		return;
+//	}
 	int p = __patition2(arr, l, r);
 	__quickSort2(arr, l, p-1);
 	__quickSort2(arr, p+1, r); 
@@ -49,7 +54,7 @@ void __quickSort2(T arr[], int l, int r) {
 template<typename T>
 void quickSort2(T arr[], int n) {
 	
-	srand(time(NULL)); 	//Ëæ»úÊıÖÖ×Ó£¬ ÎªÁËÓÅ»¯ÓĞĞòÊı×éÇé¿ö 
+	srand(time(NULL)); 	//éšæœºæ•°ç§å­ï¼Œ ä¸ºäº†ä¼˜åŒ–æœ‰åºæ•°ç»„æƒ…å†µ 
 	__quickSort2(arr, 0, n-1);
 }
 

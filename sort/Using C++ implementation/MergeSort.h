@@ -39,14 +39,14 @@ void __merge(T arr[], int l, int mid, int r){
 template<typename T>
 void __mergeSort(T arr[], int l, int r){
 	
-//	if(l >= r) {	//表示处理的数据集为空或不存在 
-//		return; 
-//	}
-	//优化，范围小于16时使用插入排序， 因为nlogn在n小的时候没太大优势 
-	if(r - l <= 15){
-		InsertionSort::insertionSort(arr, l, r);
-		return;
+	if(l >= r) {	//表示处理的数据集为空或不存在 
+		return; 
 	}
+	//优化，范围小于16时使用插入排序， 因为nlogn在n小的时候没太大优势 
+//	if(r - l <= 15){
+//		InsertionSort::insertionSort(arr, l, r);
+//		return;
+//	}
 	
 	
 	int mid = (l + r) / 2; //定义递归的重点 

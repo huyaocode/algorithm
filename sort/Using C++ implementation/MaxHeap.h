@@ -1,3 +1,4 @@
+#include<cassert>
 using namespace std;
 
 template<typename Item>
@@ -33,24 +34,27 @@ private:
 	
 	
 public:
-	MaxHeap(int capacity){	//构造 
+	//构造函数， 基础堆排序实现 
+	MaxHeap(int capacity){	
 		data = new Item[capacity+1];
 		count = 0;
 		this->capacity = capacity;
 	}
 	
-	MaxHeap(Item arr[], int n){	//构造 
+	//构造函数，常见堆排序实现方法 
+	//缺点：耗费额外空间，
+	//优点：构建堆的时间复杂度下降到 O(n) 
+	MaxHeap(Item arr[], int n){	
 		data = new Item[n+1];
 		capacity = n;
-		for(int i = 0; i <n; i++){
+		for(int i = 0; i <n; i++) {	//拷贝 
 			data[i+1] = arr[i];
 		}
 		count = n;
-		
-		for( int i = count/2; i >= 1; i--){
+		for( int i = count/2; i >= 1; i--){	//进行向下调整 
 			shiftDown(i);
 		}
-	} 
+	}
 	
 	~MaxHeap(){		//析构 
 		delete[] data;
