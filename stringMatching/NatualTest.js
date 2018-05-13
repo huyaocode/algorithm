@@ -10,7 +10,7 @@ var natualTexts = [
 
 var htest = [],
     btest = [];
-var testPattern = ["or", "or", "or"];
+var testPattern = ["or", "with", "only"];
 let index = 0;
 for(let j = 1; j <= natualTexts.length; j++){
     for(let i = 1; i <= testPattern.length; i++) {

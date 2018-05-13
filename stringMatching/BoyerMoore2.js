@@ -12,7 +12,7 @@ BoyerMoore2.prototype.isPrefix = function(pattern, p) {
             return false;  
         }
     }
-    return true;  
+    return true;
 }
 
 /** 
@@ -26,6 +26,7 @@ BoyerMoore2.prototype.suffixLength = function(pattern, p) {
     }
     return len;  
 }
+
 /**
  * 对模式中的字母生成好后缀移动表
  * @param {匹配模式} pattern 
