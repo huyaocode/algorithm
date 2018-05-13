@@ -5,6 +5,21 @@
 ## 实现方法：
 定义一个工具类，可生成随机的01字符串、验证是否匹配成功、和对查找算法进行时间统计，定义了3个算法类， Horspool、BoyerMoore、BoyerMoore2。每一次匹配都将匹配位置和所耗时间求出。其中BoyerMoore2是对代码的改进，因为第一版做出来Horspool比BoyerMoore快，感觉不对再做了一遍。
 
+## 目录结构
+|文件名|备注|
+| - | - |
+| BinaryTest.js   |   二进制数测试js文件，程序的控制中心 | 
+| BoyerMoore.js   |   BoyerMoore实现 | 
+| BoyerMoore2.js    | BoyerMoore改进 | 
+| draw.js           | Echarts绘图函数 | 
+| Horspool.js       | Horspool算法实现 | 
+| index.html        | html文件 | 
+| NatualTest.js     | 自然文本语言匹配 | 
+| README.md         | markdown | 
+| StrMatchHelper.js | 匹配帮助类 | 
+| ViolenceSerch.js  | 暴力匹配 | 
+| 测试结果1.png      | 测试结果截图 | 
+| 测试结果2.png      | 测试结果截图 | 
 
 ## 二进制文本匹配
 制表方法：
