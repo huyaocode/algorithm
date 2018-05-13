@@ -1,5 +1,3 @@
-const StrMatchHelper = require('./StrMatchHelper');
-
 /**
  * Horspool算法
  * @param {模式} pattern 
@@ -20,11 +18,7 @@ Horspool.prototype.shiftTable = [];
  */
 Horspool.prototype.createShiftTable = function (pattern) {
     let patternLen = pattern.length;
-    for (var i = 65; i < 122; i++) {
-        if (i > 90 && i < 97) {
-            continue;
-        }
-        // 接受一个指定的 Unicode 值，然后返回一个字符串
+    for (var i = 0; i < 255; i++) {
         this.shiftTable[String.fromCharCode(i)] = patternLen;
     }
     for(i in pattern){
@@ -39,8 +33,9 @@ Horspool.prototype.createShiftTable = function (pattern) {
  * @param {*} text 
  */
 Horspool.prototype.match = function(pattern, text){
-
+     //先构造移动表
     this.createShiftTable(pattern);
+
     let patternLen = pattern.length;
     let i = patternLen - 1;
     while( i <= text.length - 1){
@@ -48,13 +43,13 @@ Horspool.prototype.match = function(pattern, text){
         while( k <= patternLen - 1 && pattern[patternLen - 1 - k] == text[i - k] ){
             k++;
         }
-        if(k == patternLen){
-            return i - patternLen + 1;
-        } else {
+        if(k == patternLen){    //匹配到
+            return i - patternLen + 1;  
+        } else {                //未匹配到
             i = i + this.shiftTable[text[i]];
         }
     }
     return -1;
 }
 
-module.exports = Horspool;
+// module.exports = Horspool;

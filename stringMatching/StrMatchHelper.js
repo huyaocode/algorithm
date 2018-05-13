@@ -22,22 +22,19 @@ StrMatchHelper.prototype.gennerateRandom01Array = function(length){
 }
 
 /**
- * 拷贝一份字符串
- * @param {*} str 
- */
-StrMatchHelper.prototype.copyStr = function(str){
-    return str;
-}
-
-/**
  * 是否正确被匹配
  * @param {*} patten 
  * @param {*} pos 
  * @param {*} text 
  */
 StrMatchHelper.prototype.isMatch = function(patten, pos, text){
-    var str = text.substring(pos-1, patten.length);
-    return str == patten;
+    var str = '';
+    if(pos != -1){
+        str = text.substring(pos, pos + patten.length);
+        return str == patten;
+    } else {
+        return !text.match(patten)
+    }
 }
 
 /**
@@ -46,15 +43,29 @@ StrMatchHelper.prototype.isMatch = function(patten, pos, text){
  * @param {*} patten qc
  * @param {*} pos 
  * @param {*} text 
+ * 
+ * @return {pos: time};
  */
 StrMatchHelper.prototype.speedTest = function(matchObj, patten, text){
-    console.time('clock');
+    var startDate = new Date();
+    var start = startDate.getTime();
+
     var pos = matchObj.match(patten, text);
-    console.timeEnd('clock');
-    console.log(pos)
-    if(this.isMatch(patten, pos, text)){
-        console.log("匹配出错");
-    }
+
+    var endDate = new Date();
+    var end = endDate.getTime();
+
+    var time = end - start;
+
+    // if(!this.isMatch(patten, pos, text)){
+    //      console.log("匹配出错");
+    // }
+    var pos_time = {};
+    pos_time.pos = pos;
+    pos_time.time = time;
+    pos_time.approximatePos = Math.round((pos /100))*100;  //将位置按100来分区，因为数据太离散了
+    
+    return pos_time;
 }
 
-module.exports = StrMatchHelper;
+// module.exports = StrMatchHelper;
