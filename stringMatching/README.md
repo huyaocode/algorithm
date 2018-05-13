@@ -1,4 +1,4 @@
-使用语言： Javascript 
+﻿使用语言： Javascript 
 编译环境： Chrome浏览器 
 算法代码地址：
 
@@ -20,9 +20,13 @@
 
 
 ## 结果1
-
+![此处输入图片的描述][1]
 ## 结果2
-
+![此处输入图片的描述][2]
 ## 结果分析：
 1.BoyerMoore算法最快，耗时最少，在100000数据量下都没有发现明显的增长趋势
 2.Horspool 算法效率稍微次之
+
+
+  [1]: https://raw.githubusercontent.com/huyaocode/algorithm/master/stringMatching/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C1.png
+  [2]: https://raw.githubusercontent.com/huyaocode/algorithm/master/stringMatching/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C2.png

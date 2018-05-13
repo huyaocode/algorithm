@@ -71,8 +71,6 @@ BoyerMoore2.prototype.createBadTable = function (pattern) {
     return bad_table;
 }
 
-
-
 /**
  * 开始匹配
  * @param {*} pattern 
