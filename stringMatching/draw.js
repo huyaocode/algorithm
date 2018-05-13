@@ -6,7 +6,6 @@
  * @param {*} seriesData 
  */
 function draw(id, legendData, seriesData) {
-    console.log(arguments)
 
     var dom = document.getElementById(id);
     var myChart = echarts.init(dom);
