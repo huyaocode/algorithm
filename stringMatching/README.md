@@ -1,6 +1,6 @@
-﻿使用语言： Javascript 
-编译环境： Chrome浏览器 
-算法代码地址：
+﻿使用语言： Javascript <br/>
+编译环境： Chrome浏览器 <br/>
+算法代码地址：https://github.com/huyaocode/algorithm/tree/master/stringMatching <br/>
 
 ## 实现方法：
 定义一个工具类，可生成随机的01字符串、验证是否匹配成功、和对查找算法进行时间统计，定义了3个算法类， Horspool、BoyerMoore、BoyerMoore2。每一次匹配都将匹配位置和所耗时间求出。其中BoyerMoore2是对代码的改进，因为第一版做出来Horspool比BoyerMoore快，感觉不对再做了一遍。
@@ -13,10 +13,10 @@
 **待查找01字符串长度**：100000
 **模式01字符串长度**：15
 
-所得结果如下图
-深红（最上面那条线）为BoyerMoore算法 	代码参考《算法》(第四版)504页
-蓝色（中间那条线）  为Horspool算法		代码参考教材《算法设计与分析基础》
-红色（最下面那条线）为BoyerMoore改进算法	代码参考网上大牛
+所得结果如下图 <br/>
+深红（最上面那条线）为BoyerMoore算法 	代码参考《算法》(第四版)504页 <br/>
+蓝色（中间那条线 ）  为Horspool算法		代码参考教材《算法设计与分析基础》 <br/>
+红色（最下面那条线）为BoyerMoore改进算法	代码参考网上大牛 <br/>
 
 
 ## 结果1
@@ -24,8 +24,8 @@
 ## 结果2
 ![此处输入图片的描述][2]
 ## 结果分析：
-1.BoyerMoore算法最快，耗时最少，在100000数据量下都没有发现明显的增长趋势
-2.Horspool 算法效率稍微次之
+1.BoyerMoore算法最快，耗时最少，在100000数据量下都没有发现明显的增长趋势 <br/>
+2.Horspool 算法效率稍微次之 <br/>
 
 
   [1]: https://raw.githubusercontent.com/huyaocode/algorithm/master/stringMatching/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C1.png
