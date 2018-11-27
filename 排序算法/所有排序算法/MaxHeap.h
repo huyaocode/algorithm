@@ -9,22 +9,22 @@ private:
 	int count;
 	int capacity;
 	
-	void shiftUp(int k){	//³¢ÊÔ½«kÕâ¸öÔªËØÏòÉÏµ÷ÕûË³Ğò 
+	void shiftUp(int k){	//å°è¯•å°†kè¿™ä¸ªå…ƒç´ å‘ä¸Šè°ƒæ•´é¡ºåº 
 		while(k > 1 && data[k/2] < data[k] ){
 			swap( data[k/2], data[k] );
 			k /= 2;
 		} 
 	}
 	
-	void shiftDown(int k) {	//³¢ÊÔ½«kÕâ¸öÔªËØÏòÏÂµ÷ÕûË³Ğò 
+	void shiftDown(int k) {	//å°è¯•å°†kè¿™ä¸ªå…ƒç´ å‘ä¸‹è°ƒæ•´é¡ºåº 
 		
-		while( 2*k <= count ) {	//Ö»ÒªÓĞº¢×Ó¾Í±éÀúÏÂÈ¥ 
-			//ÔÚ´ËÂÖÑ­»·ÖĞ£¬ data[k]ºÍdata[j]½»»»Î»ÖÃ
+		while( 2*k <= count ) {	//åªè¦æœ‰å­©å­å°±éå†ä¸‹å» 
+			//åœ¨æ­¤è½®å¾ªç¯ä¸­ï¼Œ data[k]å’Œdata[j]äº¤æ¢ä½ç½®
 			int j = 2*k;	 
-			if( j+1 <= count && data[j+1] > data[j]){	//ÕÒ³ö×óÓÒº¢×ÓÖĞ×î´óµÄÄÇ¸ö 
+			if( j+1 <= count && data[j+1] > data[j]){	//æ‰¾å‡ºå·¦å³å­©å­ä¸­æœ€å¤§çš„é‚£ä¸ª 
 			 	j = j + 1;
 			}
-			if(data[k] >= data[j]){		//Èç¹û data[k] >= data[j] ËµÃ÷×óÓÒº¢×Ó¶¼±È×Ô¼ºĞ¡£¬ ÒÑ¾­Íê³ÉÁËµ÷Õû£¬ĞèÒªÌø³ö 
+			if(data[k] >= data[j]){		//å¦‚æœ data[k] >= data[j] è¯´æ˜å·¦å³å­©å­éƒ½æ¯”è‡ªå·±å°ï¼Œ å·²ç»å®Œæˆäº†è°ƒæ•´ï¼Œéœ€è¦è·³å‡º 
 				break;
 			}
 			swap(data[k], data[j]);
@@ -34,37 +34,37 @@ private:
 	
 	
 public:
-	//¹¹Ôìº¯Êı£¬ »ù´¡¶ÑÅÅĞòÊµÏÖ 
+	//æ„é€ å‡½æ•°ï¼Œ åŸºç¡€å †æ’åºå®ç° 
 	MaxHeap(int capacity){	
 		data = new Item[capacity+1];
 		count = 0;
 		this->capacity = capacity;
 	}
 	
-	//¹¹Ôìº¯Êı£¬³£¼û¶ÑÅÅĞòÊµÏÖ·½·¨ 
-	//È±µã£ººÄ·Ñ¶îÍâ¿Õ¼ä£¬
-	//ÓÅµã£º¹¹½¨¶ÑµÄÊ±¼ä¸´ÔÓ¶ÈÏÂ½µµ½ O(n) 
+	//æ„é€ å‡½æ•°ï¼Œå¸¸è§å †æ’åºå®ç°æ–¹æ³• 
+	//ç¼ºç‚¹ï¼šè€—è´¹é¢å¤–ç©ºé—´ï¼Œ
+	//ä¼˜ç‚¹ï¼šæ„å»ºå †çš„æ—¶é—´å¤æ‚åº¦ä¸‹é™åˆ° O(n) 
 	MaxHeap(Item arr[], int n){	
 		data = new Item[n+1];
 		capacity = n;
-		for(int i = 0; i <n; i++) {	//¿½±´ 
+		for(int i = 0; i <n; i++) {	//æ‹·è´ 
 			data[i+1] = arr[i];
 		}
 		count = n;
-		for( int i = count/2; i >= 1; i--){	//½øĞĞÏòÏÂµ÷Õû 
+		for( int i = count/2; i >= 1; i--){	//è¿›è¡Œå‘ä¸‹è°ƒæ•´ 
 			shiftDown(i);
 		}
 	}
 	
-	~MaxHeap(){		//Îö¹¹ 
+	~MaxHeap(){		//ææ„ 
 		delete[] data;
 	}
 	
-	int size(){		//·µ»Ø¶Ñ´óĞ¡ 
+	int size(){		//è¿”å›å †å¤§å° 
 		return count;
 	}
 	
-	bool isEmpty(){	//¶ÑÊÇ·ñÎª¿Õ 
+	bool isEmpty(){	//å †æ˜¯å¦ä¸ºç©º 
 		return count == 0;
 	}
 	
@@ -76,7 +76,7 @@ public:
 		shiftUp( count );
 	}
 	
-	Item extractMax(){	//È¡³ö¶ÑÖĞ×î´óµÄÊı 
+	Item extractMax(){	//å–å‡ºå †ä¸­æœ€å¤§çš„æ•° 
 		
 		assert( count > 0 );
 		Item max = data[1];

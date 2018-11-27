@@ -1,8 +1,8 @@
 using namespace std;
 
-//µ¥Â·¿ìÅÅ 
-//¶Ôarr[l, r]²¿·Ö½øĞĞpatition²Ù×÷
-//·µ»Øp£¬Ê¹µÃarr[l,p-1]Ğ¡ÓÚarr[p], arr[p+1, r]´óÓÚarr[p] 
+//å•è·¯å¿«æ’ 
+//å¯¹arr[l, r]éƒ¨åˆ†è¿›è¡Œpatitionæ“ä½œ
+//è¿”å›pï¼Œä½¿å¾—arr[l,p-1]å°äºarr[p], arr[p+1, r]å¤§äºarr[p] 
 template<typename T>
 int __patition(T arr[], int l, int r) {
 	
@@ -20,7 +20,7 @@ int __patition(T arr[], int l, int r) {
 	return j;
 }
 
-//¶Ôarr[l, r]²¿·Ö½øĞĞ¿ìËÙÅÅĞò 
+//å¯¹arr[l, r]éƒ¨åˆ†è¿›è¡Œå¿«é€Ÿæ’åº 
 template<typename T>
 void __quickSort(T arr[], int l, int r) {
 	if(l >= r){
@@ -38,7 +38,7 @@ void __quickSort(T arr[], int l, int r) {
 template<typename T>
 void quickSort(T arr[], int n) {
 	
-	srand(time(NULL)); 	//Ëæ»úÊıÖÖ×Ó£¬ ÎªÁËÓÅ»¯ÓĞĞòÊı×éÇé¿ö 
+	srand(time(NULL)); 	//éšæœºæ•°ç§å­ï¼Œ ä¸ºäº†ä¼˜åŒ–æœ‰åºæ•°ç»„æƒ…å†µ 
 	__quickSort(arr, 0, n-1);
 }
 

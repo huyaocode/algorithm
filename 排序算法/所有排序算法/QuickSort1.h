@@ -1,13 +1,13 @@
 using namespace std;
 
-//µ¥Â·¿ìÅÅ 
-//¶Ôarr[l, r]²¿·Ö½øĞĞpatition²Ù×÷
-//·µ»Øp£¬Ê¹µÃarr[l,p-1]Ğ¡ÓÚarr[p], arr[p+1, r]´óÓÚarr[p] 
+//å•è·¯å¿«æ’ 
+//å¯¹arr[l, r]éƒ¨åˆ†è¿›è¡Œpatitionæ“ä½œ
+//è¿”å›pï¼Œä½¿å¾—arr[l,p-1]å°äºarr[p], arr[p+1, r]å¤§äºarr[p] 
 template<typename T>
 int __patition1(T arr[], int l, int r) {
 	
 	
-	//ÓÅ»¯£º Ëæ»úÑ¡Ôñ»ù×¼Êı£¬ ·ÀÖ¹ÔÚÓĞĞòÇé¿öÏÂÊ±¼ä¸´ÔÓ¶ÈÍË»¯³Én^2 
+	//ä¼˜åŒ–ï¼š éšæœºé€‰æ‹©åŸºå‡†æ•°ï¼Œ é˜²æ­¢åœ¨æœ‰åºæƒ…å†µä¸‹æ—¶é—´å¤æ‚åº¦é€€åŒ–æˆn^2 
 	swap( arr[l] , arr[rand()%(r-l+1)+l] );
 
 	T v = arr[l];
@@ -25,7 +25,7 @@ int __patition1(T arr[], int l, int r) {
 }
 
 
-//¶Ôarr[l, r]²¿·Ö½øĞĞ¿ìËÙÅÅĞò 
+//å¯¹arr[l, r]éƒ¨åˆ†è¿›è¡Œå¿«é€Ÿæ’åº 
 template<typename T>
 void __quickSort1(T arr[], int l, int r) {
 //	if(l >= r){
@@ -43,7 +43,7 @@ void __quickSort1(T arr[], int l, int r) {
 template<typename T>
 void quickSort1(T arr[], int n) {
 	
-	srand(time(NULL)); 	//Ëæ»úÊıÖÖ×Ó£¬ ÎªÁËÓÅ»¯ÓĞĞòÊı×éÇé¿ö 
+	srand(time(NULL)); 	//éšæœºæ•°ç§å­ï¼Œ ä¸ºäº†ä¼˜åŒ–æœ‰åºæ•°ç»„æƒ…å†µ 
 	__quickSort1(arr, 0, n-1);
 }
 
