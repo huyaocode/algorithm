@@ -3,6 +3,7 @@
 
 #include "SelectionSort.h"
 #include "InsertionSort.h"
+
 #include "MergeSort.h"
 #include "QuickSort.h"
 #include "QuickSort1.h"
@@ -12,10 +13,7 @@
 
 int main()
 {
-	int n = 100000;
-
-	cout << endl
-			 << n << endl;
+	int n = 1000;
 
 	cout << "随机数" << endl;
 	int *arr1 = SortTestHelper::generateRandomArray(n, 0, n);

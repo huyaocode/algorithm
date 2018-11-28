@@ -6,7 +6,7 @@ using namespace std;
  * 未经改进的选择排序
  */
 template <typename T>
-void slowSelectionSort(T arr[], int length)
+void slowinsertionSort(T arr[], int length)
 {
   for (int i = 1; i < length; i++)
   {
@@ -25,7 +25,7 @@ void slowSelectionSort(T arr[], int length)
  * 优化后的选择排序
  */
 template <typename T>
-void selectionSort(T arr[], int length)
+void insertionSort(T arr[], int length)
 {
   for (int i = 1; i < length; i++)
   {
@@ -52,7 +52,7 @@ int main()
 {
   // 整型排序
   int arr[] = {1, 3, 5, 2, 4, 7, 9, 8, 8, 6};
-  selectionSort(arr, 10);
+  insertionSort(arr, 10);
 
   for (int i = 0; i < 10; i++)
   {
