@@ -28,7 +28,7 @@ int main()
 	delete[] arr2;
 	delete[] arr3;
 
-	cout << "顺序数" << endl;
+	cout << "近乎有序数组" << endl;
 	arr1 = SortTestHelper::generateNearlyOrderedArray(n, 10);
 	arr2 = SortTestHelper::copyIntArray(arr1, n);
 	arr3 = SortTestHelper::copyIntArray(arr1, n);
