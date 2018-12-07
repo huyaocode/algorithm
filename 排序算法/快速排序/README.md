@@ -9,7 +9,8 @@
 ![单路快排](./IMG/oneRoad.gif)
 
 ## 缺点与优化
-对于大多数O(n^2)级算法都可以优化的方法： 在数据量很小的时候使用插入排序进行优化。
+对于大多数O(n^2)级算法都可以优化的方法：
+ 在数据量很小的时候使用插入排序进行优化。
 
 ### 缺点1：对近乎有序的数组性能很低
 在面对近乎有序的数组时，快速排序的效率是非常低的。因为快速排序对数组的划分是以当前需排序区域的第一个位置的元素作为基准值来划分的。如果数组近乎有序，那么划分时形成的数的平衡度很差，即小于基准值的区间近乎为0，而大于基准值的区间则很大。这样就会使快速排序退化到O（n^2）级。
@@ -18,7 +19,9 @@
 #### 优化方法：
 
 使用数组中间的那个元素作为待排序区间划分的基准值
-```javascript
+
+#### partition函数
+```java
 int __partition(T arr[], int left, int right) {
 
   //优化，使用数组中间元素作为基准元素
@@ -37,10 +40,43 @@ int __partition(T arr[], int left, int right) {
 }
 ```
 
-### 缺点2：对于包含大量重复数据的数组性能很低
-当数组中出现大量重复元素时，partition操作非常可能会将数组将会被分成两个极度不平衡部分。这是因为对于每一个键值重复的元素太多，导致划分出的两部分差异非常大，这也会导致数组退化成 O(n^2)级的算法。
+## 双路快排
+
+### 单路快排存在的缺点
+单路快排对于包含大量重复数据的数组性能很低。
+原因： 当数组中出现大量重复元素时，partition操作非常可能会将数组将会被分成两个极度不平衡部分。这是因为对于每一个键值重复的元素太多，导致划分出的两部分差异非常大，这也会导致数组退化成 O(n^2)级的算法。
 ![lotRepeat](./IMG/lotRepeat.png)
 
 #### 优化方法
-使用双路快拍，将等于基准值的元素划分到数组的两端。
-![双路快拍](./IMG/twoRoad.gif)
+使用双路快排，将等于基准值的元素划分到数组的两端。
+![双路快排](./IMG/twoRoad.gif)
+
+#### partition函数
+```java
+int __partition2(T arr[], int left, int right) {
+
+  //优化，使用数组中间元素作为基准元素
+  swap(arr[left], arr[(left + right) / 2]);  
+  int standard = arr[left];
+
+  // arr[left+1, i) <= standard ; arr(j, right] >= standard
+  int i = left + 1, j = right;
+  while(true) {
+    while( i <= right && arr[i] < standard) {
+      i ++;
+    }
+    while(j >= left+1 && arr[j] > standard) {
+      j--;
+    }
+    if( i > j ) {
+      break;
+    }
+    swap(arr[i], arr[j]);
+    i++;
+    j--;
+  }
+
+  swap(arr[left], arr[j]);
+  return j;
+}
+```

@@ -52,13 +52,16 @@ void quickSort(T arr[], int length)
 int main()
 {
   int n = 100000;
-  cout << "随机数" << endl;
-	int *arr1 = SortTestHelper::generateRandomArray(n, 0, n);
-  SortTestHelper::testSort("快速排序", quickSort, arr1, n);
 
-	cout << "近乎有序数组" << endl;
+  cout << "快速排序3种不同特征的数据下的效率" << endl;
+	int *arr1 = SortTestHelper::generateRandomArray(n, 0, n);
+  SortTestHelper::testSort("随机数", quickSort, arr1, n);
+
 	int *arr2 = SortTestHelper::generateNearlyOrderedArray(n, 10);
-	SortTestHelper::testSort("快速排序", quickSort, arr1, n);
+	SortTestHelper::testSort("近乎有序数组", quickSort, arr2, n);
+
+	int *arr3 = SortTestHelper::generateRandomArray(n, 0, 10);
+	SortTestHelper::testSort("大量重复的数", quickSort, arr3, n);
 
   return 0;
 }
