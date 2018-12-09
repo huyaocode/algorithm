@@ -62,7 +62,7 @@ int main()
 {
   int n = 100000;
 
-  cout << "快速排序3种不同特征的数据下的效率" << endl;
+  cout << "双路快排3种不同特征的数据下的效率" << endl;
 	int *arr1 = SortTestHelper::generateRandomArray(n, 0, n);
   SortTestHelper::testSort("随机数", quickSort, arr1, n);
 
