@@ -30,7 +30,7 @@ void heapSort2(T arr[], int n){
 ////////////////////////////////////////////
  
 template<typename T>
-__shiftDown(T arr[], int n, int k){
+void __shiftDown(T arr[], int n, int k){
 	
 	while( 2*k+1 < n ) {	//只要有孩子就遍历下去 
 		//在此轮循环中， arr[k]arr[j]交换位置

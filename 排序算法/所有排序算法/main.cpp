@@ -13,7 +13,7 @@
 
 int main()
 {
-	int n = 1000;
+	int n = 100000;
 
 	cout << "随机数" << endl;
 	int *arr1 = SortTestHelper::generateRandomArray(n, 0, n);
@@ -33,9 +33,9 @@ int main()
 	arr2 = SortTestHelper::copyIntArray(arr1, n);
 	arr3 = SortTestHelper::copyIntArray(arr1, n);
 
-	SortTestHelper::testSort("", mergeSort, arr1, n);
-	SortTestHelper::testSort("", quickSort2, arr2, n);
-	SortTestHelper::testSort("", heapSort, arr3, n);
+	SortTestHelper::testSort("归并排序", mergeSort, arr1, n);
+	SortTestHelper::testSort("快速排序", quickSort2, arr2, n);
+	SortTestHelper::testSort("堆排序", heapSort, arr3, n);
 
 	delete[] arr1;
 	delete[] arr2;
@@ -46,9 +46,9 @@ int main()
 	arr2 = SortTestHelper::copyIntArray(arr1, n);
 	arr3 = SortTestHelper::copyIntArray(arr1, n);
 
-	SortTestHelper::testSort("", mergeSort, arr1, n);
-	SortTestHelper::testSort("", quickSort2, arr2, n);
-	SortTestHelper::testSort("", heapSort, arr3, n);
+	SortTestHelper::testSort("归并排序", mergeSort, arr1, n);
+	SortTestHelper::testSort("快速排序", quickSort2, arr2, n);
+	SortTestHelper::testSort("堆排序", heapSort, arr3, n);
 
 	delete[] arr1;
 	delete[] arr2;
