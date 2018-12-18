@@ -2,6 +2,7 @@
   "files.associations": {
     "iostream": "cpp",
     "limits": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "cassert": "cpp"
   }
 }
