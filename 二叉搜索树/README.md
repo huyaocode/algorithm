@@ -63,7 +63,7 @@ Value* search(Node* node, Key key) {
 }
 ```
 
-## 遍历
+## 深度遍历
 ### 前序遍历
 先访问当前节点，再依次递归访问左右子树
 ![pre](./IMG/pre.gif)
@@ -73,3 +73,63 @@ Value* search(Node* node, Key key) {
 ### 后序遍历
 ![after](./IMG/last.gif)
 先递归访问左右子树，再访问自身节点
+
+## 广度遍历
+广度优先遍历，即一层一层的、自左向右的遍历。
+
+#### 实现方法：
+使用一个队列来实现层序遍历。
+首先将节点放到队列中。在该节点出队时，判断根原生是否又左右孩子节点，如果有的话将它的两个孩子节点也入队。
+
+![广度优先](./IMG/guangduBianli.gif)
+
+
+## 最小值和最大值
+由于二叉搜索树的性质：一个节点的必定比它的左子树的所有元素大；必定比它右子树的所有元素小。
+##### 二叉搜索树的最小值
+从根节点除出发，一直往左找，直到节点没有左孩子，那么那个元素就是整棵树的最小值。
+##### 二叉搜索树的最大值
+ 从根节点除出发，一直往右找，直到节点没有右孩子，那么那个元素就是整棵树的最大值。
+
+## 删除节点
+
+#### 删除最小节点
+找到最左的节点删除
+```cpp
+Node* removeMin(Node* node) {
+  if( node->left == NULL) {
+    Node* rightNode = node->right;
+    delete node;
+    count --;
+    return rightNode;
+  }
+  node->left = removeMin(node->left);
+  return node;
+}
+```
+
+#### 删除最大节点
+找到最右的节点删除
+```cpp
+Node* removeMax(Node* node) {
+  if(node->right == NULL){
+    Node* leftNode = node->left;
+    delete node;
+    count --;
+    return leftNode;
+  }
+  node->right = removeMax(node->right);
+  return node;
+}
+```
+
+#### 删除只有左孩子的节点
+![deleteL](./IMG/deleteL.gif)
+
+#### 删除只有右孩子的节点
+![deleteR](./IMG/deleteR.gif)
+
+#### 删除既有左孩子，又有右孩子的节点
+从该节点的右子树中找一个最小的节点，然后将他从原位置移除，替代被删除的节点。
+![deleteLR](./IMG/deleteLR.gif)
+
