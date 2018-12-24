@@ -133,3 +133,35 @@ Node* removeMax(Node* node) {
 从该节点的右子树中找一个最小的节点，然后将他从原位置移除，替代被删除的节点。
 ![deleteLR](./IMG/deleteLR.gif)
 
+## 其他问题
+### rank & select
+某元素排在数中的排序是多少？
+排名为n的元素是哪个元素？
+![rank](./IMG/rank.png)
+
+### 支持重复元素的二分搜索树
+为每个二分搜索树添加count字段记录这个节点保存了几个值
+![repeat](./IMG/repeat.png)
+
+## 二分搜索树的局限性
+二分搜索树插入的顺序不同，可能导致树的高度变得很大.
+即二分搜索树可能退化成链表
+![treeH](./IMG/treeH.png)
+
+### 改进与变种：
+平衡二叉树： 红黑树
+![红黑色](./IMG/redBlack.png)
+
+平衡二叉树和堆的结合： Treap
+
+#### trie
+使得查找一个单词的定义的时间复杂度是和这个单词本身的长度相关的，而和字典中本身有多少个单词无关
+![trie](./IMG/trie.png)
+
+## 树形问题
+
+递归法天然的树形性质
+![qsortTree.png](./IMG/qsortTree.png)
+决策树
+![dragon](./IMG/dragon.png)
+![8num](./IMG/8num.png)
