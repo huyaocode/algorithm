@@ -3,7 +3,7 @@
 using namespace std;
 
 /**
- * 未经改进的选择排序
+ * 未经改进的插入排序
  */
 template <typename T>
 void slowinsertionSort(T arr[], int length)
@@ -22,7 +22,7 @@ void slowinsertionSort(T arr[], int length)
 }
 
 /**
- * 优化后的选择排序
+ * 优化后的插入排序
  */
 template <typename T>
 void insertionSort(T arr[], int length)
