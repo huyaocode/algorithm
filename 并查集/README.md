@@ -34,7 +34,7 @@ id:  0 0 1 1 0 0 1 1 1 1
 因为UnionFind2的合并集合过程中，直接将根元素指向另一个集合的根元素。
 
 而我想出来的这个myUnionFind则是将从这个要合并的元素沿着自己的父节点向上查找，将沿路的根都直接指向目标根元素。
-```javascript
+```cpp
 // 合并元素p和元素q所属的集合
   void unionElements(int p, int q)
   {
@@ -73,3 +73,20 @@ UnionFind3已经是非常块速的，但是他是按照该集合的元素个数�
 
 ### 路径压缩 
 对find的优化
+![路径压缩](IMG/passCompress.gif)
+
+```cpp
+int find(int p)
+{
+  assert(0 <= p && p < count);
+  while (parent[p] != p)
+  {
+    // 路径压缩
+    parent[p] = parent[parent[p]];
+    p = parent[p];
+  }
+  return p;
+}
+```
+
+### 将节点压缩到只有一层

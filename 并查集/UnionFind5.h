@@ -4,7 +4,7 @@ using namespace std;
 /**
  * 基本的路径压缩
  */
-namespace UF4
+namespace UF5
 {
 
 class UnionFind
@@ -35,14 +35,10 @@ public:
   int find(int p)
   {
     assert(0 <= p && p < count);
-    while (parent[p] != p)
-    {
-      ////////// 路径压缩 ///////////
-      parent[p] = parent[parent[p]];
-      //////////////////////////////
-      p = parent[p];
+    if(p != parent[p]) {
+      parent[p] = find(parent[p]);
     }
-    return p;
+    return parent[p];
   }
   //是否为同一集合
   bool isConnected(int p, int q)

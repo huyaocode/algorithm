@@ -5,6 +5,7 @@
 #include "UnionFind2.h"
 #include "UnionFind3.h"
 #include "UnionFind4.h"
+#include "UnionFind5.h"
 #include "myUnionFind.h"
 #include "myUnionFind2.h"
 
@@ -104,6 +105,30 @@ void testUF4(int n, int connectTime)
   }
   time_t endTime = clock();
   cout << "UF4, " << connectTime + n << "ops, " << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
+}
+
+//测试testUF5
+void testUF5(int n, int connectTime)
+{
+  srand(time(NULL));
+  UF5::UnionFind uf = UF5::UnionFind(n);
+  time_t startTime = clock();
+  //随机连接几个节点
+  for (int i = 0; i < connectTime; i++)
+  {
+    int a = rand() % n;
+    int b = rand() % n;
+    uf.unionElements(a, b);
+  }
+  //判断是否在同一集合中
+  for (int i = 0; i < n; i++)
+  {
+    int a = rand() % n;
+    int b = rand() % n;
+    uf.isConnected(a, b);
+  }
+  time_t endTime = clock();
+  cout << "UF5, " << connectTime + n << "ops, " << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
 }
 
 //测试我自己优化后的并查集

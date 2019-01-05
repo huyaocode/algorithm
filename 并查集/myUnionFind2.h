@@ -35,14 +35,11 @@ public:
   // O(h)复杂度, h为树的高度
   int find(int p)
   {
-    assert(p >= 0 && p < count);
-    if(p != parent[p]) {
-      int root = find(parent[p]);
-      parent[p] = root;
-      return root;
-    } else {
-      return p;
-    }
+  assert(0 <= p && p < count);
+  if(p != parent[p]) {
+    parent[p] = find(parent[p]);
+  }
+  return parent[p];
   }
 
   // 查看元素p和元素q是否所属一个集合
@@ -55,12 +52,14 @@ public:
   void unionElements(int p, int q)
   {
     int qRoot = find(q);
+
     parent[q] = qRoot;
     //如果这个节点不是根，并且这个节点没有指向向合并的根节点
     if (parent[p] != p && parent[p] != qRoot)
     {
       unionElements(parent[p], q);
     }
+
     parent[p] = qRoot;
   }
 };
