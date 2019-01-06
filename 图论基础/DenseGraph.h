@@ -58,7 +58,13 @@ public:
     assert(w >= 0 && w < spotNum);
     return g[w][v];
   }
-
+  void show(){
+    for( int i = 0 ; i < spotNum; i ++ ){
+        for( int j = 0 ; j < spotNum ; j ++ )
+            cout<<g[i][j]<<"\t";
+        cout<<endl;
+    }
+  }
   class adjIterator
   {
   private:

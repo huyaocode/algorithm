@@ -28,7 +28,7 @@ public:
   //返回点的个数
   int V() { return spotNum; }
   //返回边的个数
-  int E() { return spotNum; }
+  int E() { return edgeNum; }
   /**
    * 添加一条边
    */
@@ -41,7 +41,7 @@ public:
     {
       g[w].push_back(v);
     }
-    spotNum++;
+    edgeNum++;
   }
   // v和w直接是否有边
   bool hasEdge(int v, int w)
@@ -60,7 +60,6 @@ public:
 
   void show()
   {
-
     for (int i = 0; i < spotNum; i++)
     {
       cout << "vertex " << i << ":\t";
@@ -95,7 +94,7 @@ public:
     int next()
     {
       index += 1;
-      if (index < G.g[v].size())
+      if (G.g[v].size())
         return G.g[v][index];
       return -1;
     }
