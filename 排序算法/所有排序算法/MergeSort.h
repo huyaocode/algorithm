@@ -5,8 +5,16 @@ using namespace std;
 	O(nlogn)先用二分等思想将问题化解到logn层级，之后每个层级用 O(n)级别的算法做事情
  */ 
 
- 
-//将arr[l...mid]和arr[mid+1...r]两部分进行归并  
+
+/**
+ * 将arr[l...mid]和arr[mid+1...r]两部分进行归并为一个有序数组
+ * 
+ * 先使用一个临时数组保存这段数组，即两个有序队列
+ * 再分别判断这两个队列的头谁更小，将更小出队的赋值回arr
+ * 
+ * 注意处理越界情况，即左边的队列空了的时候，和右边的队列空了的时候
+ * 当一个队列空了，那么到另一个队列中去取数据
+ */
 template<typename T>
 void __merge(T arr[], int l, int mid, int r){
 	T aux[r - l + 1];	//临时暂存数组 
@@ -22,13 +30,17 @@ void __merge(T arr[], int l, int mid, int r){
 		if(i > mid){
 			arr[k] = aux[j - l];
 			j++; 
-		} else if(j > r){		//如果右边届大于了右边界应有的边界就用左区间赋值 
+		}
+		else if(j > r){		//如果右边届大于了右边界应有的边界就用左区间赋值 
 			arr[k] = aux[i - l];
 			i++;
-		} else if(aux[i - l] < aux[j - l]){	//正常交换, 在此之前因该考虑越界的情况 
+		}
+		//正常交换, 在此之前因该考虑越界的情况 
+		else if(aux[i - l] < aux[j - l]){	
 			arr[k] = aux[i - l];
 			i++;
-		} else {
+		}
+		else {
 			arr[k] = aux[j - l];
 			j++;
 		}

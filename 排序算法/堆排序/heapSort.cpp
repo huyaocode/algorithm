@@ -6,6 +6,13 @@ using namespace std;
 /**
  * 原地堆排序
  */
+
+/**
+ * shiftDown 沿着树不断调整位子 
+ * 比较左右子树，是否有比自己大的，如果有就和大的那个交换位置
+ * 使得大的再上，小的在下
+ * 为了维持堆的特性，还得把那个交换到子树上的较小元素拿去尝试对他进行shiftDown
+ */
 template <typename T>
 void __shiftDown(T arr, int pos, int len) {
   while(2 * pos + 1 < len){
