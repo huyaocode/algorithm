@@ -64,7 +64,7 @@ int main()
   int n = 10000;
   int *arr = TestHelper::generateOrderedArray(n);
   TestHelper::shuffleArray(arr, n);
-
+  
   // 验证selection算法, 对arr数组求第i小元素, 应该为i
   for (int i = 0; i < n; i++)
   {
@@ -73,6 +73,5 @@ int main()
   }
   cout << "Test selection completed." << endl;
   delete[] arr;
-
   return 0;
 }
