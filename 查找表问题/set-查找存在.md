@@ -74,3 +74,38 @@ bool isHappy(int n) {
   }
 }
 ```
+
+
+
+### 219. 存在重复元素 II
+
+给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，使得 nums [i] = nums [j]，并且 i 和 j 的差的绝对值最大为 k。
+```
+输入: nums = [1,2,3,1], k = 3
+输出: true
+```
+滑动窗口 + set
+
+时间复杂度O(n)
+空间复杂度O(k)
+```cpp
+bool containsNearbyDuplicate(vector<int>& nums, int k) {
+    unordered_set<int> record;
+    for(int i = 0; i < nums.size(); i++) {
+        if(record.find(nums[i]) != record.end()) {
+            return true;
+        }
+        record.insert(nums[i]);
+        if(record.size() == k + 1) {
+            record.erase(nums[i - k]);
+        }
+    }
+    return false;
+}
+```
+
+
+
+### 
+
+set lower_bound()返回的是第一个大于等于x的迭代器
