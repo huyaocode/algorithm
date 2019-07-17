@@ -9,7 +9,7 @@ int binarySearch(T arr[], int len, T target) {
   while(left <= right) {
     int mid = left + (right - left) / 2;
     if(arr[mid] == target) {
-      break;
+      return mid;
     }
     // 在arr[left, mid-1]中找, 因为mid已经被排除掉了
     else if(target < arr[mid]) {
