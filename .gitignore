@@ -1,2 +1,4 @@
 *.exe
 *.stackdump
+0test
+.vscode
