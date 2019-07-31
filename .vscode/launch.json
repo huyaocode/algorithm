@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/数组/二维数组中的查找.js"
+            "program": "${workspaceFolder}/0test/堆排序.js"
         },
         {
             "type": "chrome",

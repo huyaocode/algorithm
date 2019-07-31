@@ -15,7 +15,8 @@ using namespace std;
  */
 template <typename T>
 void __shiftDown(T arr, int pos, int len) {
-  while(2 * pos + 1 < len){
+  // 索引以0开始，左节点： 2 * pos + 1 这里pos会变化，不要提变量
+  while(2 * pos + 1 < len){ 
     int j = pos * 2 + 1;  //默认左孩子
     if(j + 1 < len) { //如果有右孩子
       if(arr[j + 1] > arr[j]) {
