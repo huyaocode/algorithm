@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/0test/堆排序.js"
+            "program": "${workspaceFolder}/数组/排序后相邻两数最大差值.js"
         },
         {
             "type": "chrome",
