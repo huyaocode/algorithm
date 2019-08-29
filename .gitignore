@@ -1,3 +1,4 @@
 *.exe
 *.stackdump
 /test/*
+/0test/*
