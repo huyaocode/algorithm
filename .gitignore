@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 *.exe
 *.stackdump
 /test/*
 /0test/*
+=======
+*.exe
+*.stackdump
+0test
+>>>>>>> 7afc8e480dd4d3349a74003b2a0e6ac92e0f9a88

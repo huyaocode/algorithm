@@ -31,18 +31,11 @@ void insertionSort(T arr[], int length)
   {
     T curItem = arr[i];
     //依次和前一个对比，直到碰到比自己小的
-    for (int j = i; j > 0; j--)
-    {
-      if (arr[j - 1] > curItem)
-      {
-        arr[j] = arr[j - 1];
-      }
-      else
-      {
-        arr[j] = curItem;
-        break;
-      }
+    int j; // j保存元素curItem应该插入的位置
+    for (j = i; j > 0 && arr[j-1] > curItem; j--) {
+      arr[j] = arr[j-1];
     }
+    arr[j] = curItem;
   }
 }
 
@@ -51,7 +44,7 @@ void insertionSort(T arr[], int length)
 int main()
 {
   // 整型排序
-  int arr[] = {1, 3, 5, 2, 4, 7, 9, 8, 8, 6};
+  int arr[] = {1,3,6,2,5,7,4,9,8,0};
   insertionSort(arr, 10);
 
   for (int i = 0; i < 10; i++)
