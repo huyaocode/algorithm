@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/数组/旋转数组的最小数字.js"
+            "program": "${workspaceFolder}/递归和回溯法/爬楼梯.js"
         },
         {
             "type": "chrome",
