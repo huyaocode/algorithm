@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/数组/排序后相邻两数最大差值.js"
+            "program": "${workspaceFolder}/数组/旋转数组的最小数字.js"
         },
         {
             "type": "chrome",
