@@ -15,7 +15,7 @@ function Fibonacci(n)
       return f2;
     }
     let res;
-    while(-- n){
+    for (let i = 1; i < n; i++) {
       res = f1 + f2;
       f1 = f2;
       f2 = res;
