@@ -4,7 +4,7 @@ function reOrderArray(array) {
   let tempArr = [];
   let i = left;
   j = right;
-  while (i < array.length && j >= 0) {
+  while (left < right) {
     if(isEven(array[j])) {
       tempArr[right --] = array[j];
     }
