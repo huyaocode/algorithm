@@ -23,6 +23,7 @@ function heapSort(arr) {
   for (let i = ((arr.length - 1) / 2) >> 0; i >= 0; i--) {
     shiftDown(arr, i, arr.length);
   }
+  console.log(arr)
   for (let i = arr.length - 1; i > 0; i--) {
     swap(arr, i, 0);
     shiftDown(arr, 0, i);
