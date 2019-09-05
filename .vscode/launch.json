@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/数组/数字在排序数组中出现的次数.js"
+            "program": "${workspaceFolder}/排序/把数组排成最小数.js"
         },
         {
             "type": "chrome",
