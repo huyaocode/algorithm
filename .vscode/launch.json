@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/递归和回溯法/爬楼梯.js"
+            "program": "${workspaceFolder}/数组/数字在排序数组中出现的次数.js"
         },
         {
             "type": "chrome",

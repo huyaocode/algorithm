@@ -31,7 +31,6 @@ function MoreThanHalfNum_Solution_1(numbers) {
     numbers[l] = numbers[r];
     numbers[r]= temp;
   }
-  // console.log(numbers,numbers.length,  mid, numbers[mid])
   if(checkMoreThanHalf(numbers, mid)){
     return numbers[mid]
   } else {
