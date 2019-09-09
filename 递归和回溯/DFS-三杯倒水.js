@@ -1,20 +1,25 @@
-console.time('timeConsume') // 计时
-const bucket = [8, 5, 3];
+console.time('timeConsume'); // 计时
+const bucket = [3, 5, 8];
 const target = 4;
 
 const BUCKET_NUM = bucket.length;
 let map = new Map();
-let min = 99999999;
-map.set(int2string([0,0,0]), 0);
-// 初始三个状态
+let min = Infinity;
+
+// 初始状态
 for (let i = 0; i < bucket.length; i++) {
   let initState = [0, 0, 0];
   initState[i] = bucket[i];
   let bucketStr = int2string(initState);
   search(bucketStr, 1);
 }
-console.log('min', min)
-console.timeEnd('timeConsume')
+if (min < Infinity) {
+  console.log('min', min);
+} else {
+  console.log(-1);
+}
+
+console.timeEnd('timeConsume');
 
 function search(now, step) {
   // 找到一个可行的路径
@@ -23,10 +28,11 @@ function search(now, step) {
     if (step < min) {
       min = step;
     }
+    return step;
   }
   // 当前步数已经超过最小步数了，再查找下去无意义
-  if(step > min) {
-    return;
+  if (step > min) {
+    return -1;
   }
   // 判断是否在map中已经有过这样的走法
   if (!map.has(now) || map.get(now) > step) {
@@ -61,9 +67,9 @@ function search(now, step) {
           let origin_j = nowBucktes[j];
           let sum = origin_i + origin_j;
           // i->j  j倒满就是 bucket[j]，没有就是SUM
-          nowBucktes[j] = Math.min(sum, bucket[j]); 
+          nowBucktes[j] = Math.min(sum, bucket[j]);
           // i->j  i倒完就是0，没到完就是 sum - nowBucktes[j]
-          nowBucktes[i] = Math.max(0, sum - nowBucktes[j])
+          nowBucktes[i] = Math.max(0, sum - nowBucktes[j]);
           search(int2string(nowBucktes), step + 1);
           nowBucktes[i] = origin_i;
           nowBucktes[j] = origin_j;
@@ -71,6 +77,7 @@ function search(now, step) {
       }
     }
   }
+  return -1;
 }
 
 function findPath(bucketsStr, target) {
