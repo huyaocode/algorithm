@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - Water",
+            "request": "launch",
+            "mainClass": "Water"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Water",
+            "request": "launch",
+            "mainClass": "cn.wzy.algorithm.Water"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
