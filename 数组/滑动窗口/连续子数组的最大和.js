@@ -13,7 +13,7 @@ function FindGreatestSumOfSubArray(array)
   let maxSum = array[0];
   let curSum = array[0];
   for(let i = 1; i < array.length; i++){
-    if(curSum < 0) {
+    if(curSum < 0) { // 累计和小于 0 才舍弃
       curSum = array[i];
     } else {
       curSum += array[i];
@@ -24,3 +24,5 @@ function FindGreatestSumOfSubArray(array)
   }
   return maxSum;
 }
+
+console.log(FindGreatestSumOfSubArray([1,2,3,4,-1,5]))
